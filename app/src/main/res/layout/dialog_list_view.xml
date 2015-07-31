@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_dialog"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/lblTitle"
+        style="@style/DialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/headingDialog" />
+
+    <View style="@style/GreyDivider" />
+
+    <ListView
+        android:id="@+id/sortLabelList"
+        style="@style/ListView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/divider_line_grey"
+        android:listSelector="@drawable/list_item_selector" >
+    </ListView>
+
+    <View style="@style/GreyDivider" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        style="@style/DialogButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Cancel" />
+
+</LinearLayout>

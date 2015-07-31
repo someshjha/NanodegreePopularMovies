@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">NanodegreePopularMovies</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="lblpopular_movies">Popular Movies</string>
+    <string name="txtloading">Loading...</string>
+    <string name="title_activity_overview">OverviewActivity</string>
+    <string name="noConnection">No internet connection.</string>
+    <string name="mostPopularLbl">Most Popular</string>
+    <string name="highestRatedLbl">Highest Rated</string>
+    <string name="headingDialog">Sort By</string>
+    <string name="releaseDateLbl">Release Date</string>
+    <string name="revenueLbl">Revenue</string>
+    <string name="primaryReleaseDateLbl">Primary release date</string>
+    <string name="originalTitleLbl">Original Title</string>
+    <string name="title_activity_review">ReviewActivity</string>
+
+
+</resources>

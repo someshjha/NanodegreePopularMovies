@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View style="@style/GreyDivider" />
+    <TextView android:id="@+id/sortText"
+        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:textSize="22sp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        />
+
+</LinearLayout>

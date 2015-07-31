@@ -1,0 +1,63 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <style name="ScrollView" parent="@android:style/Widget.ScrollView">
+        <item name="android:requiresFadingEdge">vertical</item>
+        <item name="android:fadingEdgeLength">20dp</item>
+        <item name="android:overScrollMode">never</item>
+    </style>
+
+    <style name="ListView" parent="@android:style/Widget.ListView">
+        <item name="android:background">@color/white</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:divider">@color/background_grey</item>
+        <item name="android:dividerHeight">0.75dp</item>
+        <item name="android:requiresFadingEdge">vertical</item>
+        <item name="android:fadingEdgeLength">20dp</item>
+        <item name="android:overScrollMode">never</item>
+    </style>
+
+
+    <style name="DialogTitle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@drawable/background_dialog_title</item>
+        <item name="android:textColor">@color/muted_text_grey</item>
+        <item name="android:paddingLeft">@dimen/left_padding</item>
+        <item name="android:paddingRight">@dimen/right_padding</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="DialogButton">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blue_dark</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:background">@drawable/button_states</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="EmptyListMessage">
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">50dp</item>
+        <item name="android:paddingBottom">50dp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
+    <style name="GreyDivider">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">3px</item>
+        <item name="android:background">@color/divider_line_grey</item>
+    </style>
+
+
+</resources>
