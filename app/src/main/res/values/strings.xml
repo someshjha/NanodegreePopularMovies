@@ -15,6 +15,14 @@
     <string name="primaryReleaseDateLbl">Primary release date</string>
     <string name="originalTitleLbl">Original Title</string>
     <string name="title_activity_review">ReviewActivity</string>
+    <string name="authorText">Author:</string>
+    <string name="urlText">URL:</string>
+    <string name="contentText">Content:</string>
+    <string name="reviewHeading">Review</string>
+    <string name="markText">Mark as favorite</string>
+    <string name="markedText">Marked as favorite</string>
+    <string name="noReview">There is no review available</string>
+
 
 
 </resources>

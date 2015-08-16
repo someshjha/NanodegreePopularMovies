@@ -30,12 +30,20 @@ public class Constants {
     public static final String REVIEW_INTENT = "review_intent";
     public static final String URL_REVIEW_PATH = "http://api.themoviedb.org/3/movie/";
 
-    public static final String REVIEW_PARAM = "/review";
+    public static final String REVIEW_PARAM = "/reviews";
+    public static final String VIDEO_PARAM = "/videos";
+
     public static final String TOTAL_RESULTS= "total_results";
     public static final String AUTHOR = "author";
     public static final String CONTENT = "content";
     public static final String URL = "url";
     public static final String API_REVIEW_PARAM = "?api_key=";
+
+    public static final String KEY = "key";
+    public static final String TYPE = "type";
+    public static final String NAME = "name";
+    public static final String API_TRAILERS = "https://www.youtube.com/watch?v=";
+
 
 
 

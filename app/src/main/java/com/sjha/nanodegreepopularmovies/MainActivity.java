@@ -40,7 +40,6 @@ public class MainActivity extends Activity {
 
     private Context mContext = this;
     private SwipeRefreshLayout mSwipeContainer;
-    private ImageButton mSettingBtn;
     private GridView mMoviesList;
     private String mSortBy;
 
@@ -98,7 +97,7 @@ public class MainActivity extends Activity {
     private void initialize(){
 
         mSortBy = Constants.SORT_OPTION_POP;
-        mSettingBtn = (ImageButton)findViewById(R.id.btnSetting);
+        ImageButton mSettingBtn = (ImageButton)findViewById(R.id.btnSetting);
         mSettingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

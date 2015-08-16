@@ -7,6 +7,7 @@ public class Review {
     private String author;
     private String content;
     private String url;
+    private int totalResult;
 
     public int getTotalResult() {
         return totalResult;
@@ -16,7 +17,6 @@ public class Review {
         this.totalResult = totalResult;
     }
 
-    private int totalResult;
 
     public String getUrl() {
         return url;

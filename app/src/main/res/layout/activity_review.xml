@@ -1,12 +1,41 @@
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="horizontal"
-    android:padding="10dp"
-    android:fillViewport="false">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80DEEA">
 
-    <TextView android:layout_height="wrap_content"
+    <LinearLayout
+        android:id="@+id/heading"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:id="@+id/reviewTxt"/>
+        android:layout_height="50dp"
+        android:background="@color/background_red">
 
-</HorizontalScrollView>
+
+
+        <TextView
+            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:textColor="@color/background_material_dark"
+            android:text="@string/reviewHeading"
+            android:textSize="22sp" android:layout_weight="1"
+            android:gravity="center_horizontal|center_vertical"/>
+
+
+    </LinearLayout>
+    <TextView android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:id="@+id/noReviewAvailable"
+        android:text="@string/noReview"/>
+
+    <ListView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reviewList"
+        android:visibility="visible"
+        android:layout_below="@+id/heading"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

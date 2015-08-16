@@ -5,23 +5,25 @@
     android:layout_height="fill_parent"
     android:id="@+id/scrollViewTotal"
     android:background="@color/background_green"
+
+
     >
 
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context="com.sjha.nanodegreepopularmovies.OverviewActivity"
-
-
         >
 
         <TextView
+
             android:layout_width="wrap_content"
             android:fontFamily="sans-serif"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFFFFF"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:id="@+id/titleText"
             android:gravity="center_horizontal|center_vertical"
             android:layout_alignParentTop="true"
@@ -29,7 +31,10 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:background="#EF5350" />
+            android:background="#EF5350"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            />
 
         <ImageView
             android:layout_width="185dp"
@@ -109,12 +114,13 @@
             android:layout_marginLeft="@dimen/padding_small"
             android:layout_marginStart="@dimen/padding_small"
             android:layout_marginTop="30dp"
-            android:text="Mark as favorite"
+            android:text="@string/markText"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            />
+            android:id="@+id/markFavTxt" />
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:id="@+id/linearLayoutOverview"
                 android:orientation="vertical"
                 android:layout_marginLeft="@dimen/padding_small"
                 android:layout_marginRight="@dimen/padding_small"
@@ -131,38 +137,34 @@
                 <View
                     android:layout_marginTop="@dimen/padding"
                     style="@style/GreyDivider"/>
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="@dimen/padding_small"
-                    android:layout_marginRight="@dimen/padding_small">
 
-                    <ImageButton
-                        android:src="@android:drawable/ic_media_play"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/youTubeIcon"
-                        android:background="@color/background_red"
-                        android:layout_marginLeft="@dimen/padding_small"
-                        android:layout_marginStart="@dimen/padding_small"
-                       />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Trailer"
-                        android:id="@+id/trailerTxt"
-                        android:layout_marginLeft="@dimen/padding"
-                        />
-
-                </LinearLayout>
             </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/linearLayoutOverview"
+             >
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/padding"
+                android:paddingTop="@dimen/padding"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:paddingBottom="@dimen/padding"
+                android:text="Trailer: "
+                android:id="@+id/textView" />
+
+            <ListView
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:id="@+id/listViewTrailer" />
+        </LinearLayout>
 
     </RelativeLayout>
 </ScrollView>

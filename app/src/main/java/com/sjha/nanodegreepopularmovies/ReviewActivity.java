@@ -2,11 +2,13 @@ package com.sjha.nanodegreepopularmovies;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -22,23 +24,32 @@ import java.net.URL;
 import java.util.ArrayList;
 
 
-public class ReviewActivity extends Activity {
+public class ReviewActivity extends Activity{
 
     private String mId;
+    private Movie mMovie;
+    private Context mContext = this;
+    private TextView mNoReview;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
-        TextView reviewTxt = (TextView)findViewById(R.id.reviewTxt);
         Intent getIntent = getIntent();
-        Movie mMovie = new Movie();
         mMovie = (Movie) getIntent.getSerializableExtra(Constants.REVIEW_INTENT);
         mId = mMovie.getId();
         GetReviews getReviews = new GetReviews();
         getReviews.execute(mId);
 
     }
+
+
+
+
+
+
+
 
     public class GetReviews extends AsyncTask<String, Void, ArrayList<Review>>{
 
@@ -117,19 +128,19 @@ public class ReviewActivity extends Activity {
         }
 
 
-        private ArrayList<Review> getReviewData(String movieData) throws JSONException {
+        private ArrayList<Review> getReviewData(String reviewData) throws JSONException {
 
 
 
-            JSONObject movieObject  = new JSONObject(movieData);
-            JSONArray movieArray = movieObject.getJSONArray(Constants.RESULTS);
-            int totalResults = movieObject.getInt(Constants.TOTAL_RESULTS);
+            JSONObject reviewObject  = new JSONObject(reviewData);
+            JSONArray reviewArray = reviewObject.getJSONArray(Constants.RESULTS);
+            int totalResults = reviewObject.getInt(Constants.TOTAL_RESULTS);
 
             ArrayList<Review> reviewCollection = new ArrayList<>();
-            for(int i = 0; i <movieArray.length(); i++){
+            for(int i = 0; i <reviewArray.length(); i++){
                 Review review = new Review();
 
-                JSONObject reviewResults = movieArray.getJSONObject(i);
+                JSONObject reviewResults = reviewArray.getJSONObject(i);
                 review.setAuthor(reviewResults.getString(Constants.AUTHOR));
                 review.setContent(reviewResults.getString(Constants.CONTENT));
                 review.setUrl(reviewResults.getString(Constants.URL));
@@ -149,18 +160,18 @@ public class ReviewActivity extends Activity {
             super.onPreExecute();
             pd.setMessage(getString(R.string.txtloading));
             pd.show();
-
         }
 
         @Override
         protected void onPostExecute(final ArrayList<Review> review) {
-            Log.d(Constants.LOG_TAG,review.toString());
-
+            Log.d(Constants.LOG_TAG, review.toString());
+            ReviewAdapter reviewAdapter = new ReviewAdapter(mContext, review);
+            listView = (ListView) findViewById(R.id.reviewList);
+            listView.setAdapter(reviewAdapter);
             pd.dismiss();
-
         }
-
-
     }
+
+
 }
 
