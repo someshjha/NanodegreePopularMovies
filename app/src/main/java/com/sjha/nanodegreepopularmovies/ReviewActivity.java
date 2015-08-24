@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -136,21 +137,24 @@ public class ReviewActivity extends Activity{
             JSONArray reviewArray = reviewObject.getJSONArray(Constants.RESULTS);
             int totalResults = reviewObject.getInt(Constants.TOTAL_RESULTS);
 
-            ArrayList<Review> reviewCollection = new ArrayList<>();
-            for(int i = 0; i <reviewArray.length(); i++){
-                Review review = new Review();
+            if(totalResults != 0) {
+                ArrayList<Review> reviewCollection = new ArrayList<>();
+                for (int i = 0; i < reviewArray.length(); i++) {
+                    Review review = new Review();
 
-                JSONObject reviewResults = reviewArray.getJSONObject(i);
-                review.setAuthor(reviewResults.getString(Constants.AUTHOR));
-                review.setContent(reviewResults.getString(Constants.CONTENT));
-                review.setUrl(reviewResults.getString(Constants.URL));
-                review.setTotalResult(totalResults);
-                reviewCollection.add(review);
+                    JSONObject reviewResults = reviewArray.getJSONObject(i);
+                    review.setAuthor(reviewResults.getString(Constants.AUTHOR));
+                    review.setContent(reviewResults.getString(Constants.CONTENT));
+                    review.setUrl(reviewResults.getString(Constants.URL));
+                    review.setTotalResult(totalResults);
+                    reviewCollection.add(review);
 
+                }
+
+
+                return reviewCollection;
             }
-
-
-            return reviewCollection;
+            return  null;
 
         }
 
@@ -164,10 +168,19 @@ public class ReviewActivity extends Activity{
 
         @Override
         protected void onPostExecute(final ArrayList<Review> review) {
-            Log.d(Constants.LOG_TAG, review.toString());
-            ReviewAdapter reviewAdapter = new ReviewAdapter(mContext, review);
+
             listView = (ListView) findViewById(R.id.reviewList);
-            listView.setAdapter(reviewAdapter);
+            if (review == null){
+                mNoReview = (TextView)findViewById(R.id.noReviewAvailable);
+                listView.setVisibility(View.GONE);
+                mNoReview.setVisibility(View.VISIBLE);
+
+            }else {
+                Log.d(Constants.LOG_TAG, review.toString());
+                ReviewAdapter reviewAdapter = new ReviewAdapter(mContext, review);
+
+                listView.setAdapter(reviewAdapter);
+            }
             pd.dismiss();
         }
     }
